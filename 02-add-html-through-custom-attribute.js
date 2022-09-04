@@ -1,6 +1,4 @@
 class WebComponent extends HTMLElement {
-  // Constructor – crreated in memory, but not necessarily attached to DOM yet.
-  // Best place for initialisation. Not best place for interacting with DOM
   constructor() {
     super()
     if (this.hasAttribute('text')) {
@@ -11,15 +9,9 @@ class WebComponent extends HTMLElement {
       <span>${this.innerTextContent}</span>
     </div>
     `
-    console.log('Constructor')
   }
-  // Lifecycle methods (go outside constructor)
-  // 1. Connected Callback – runs when the element is attached to the DOM
-  connectedCallback() {
-    console.log('Connected callback')
-  }
-
-  // 2. Attribute changed cb – checking if an attribute has changed
+  // Need to watch the above for changes with lifecycle method
+  // Lifecycle method goes outside constructor
   attributeChangedCallback(attrName, oldValue, newValue) {
     if (attrName == 'text') {
       this.innerHTML = `
@@ -29,13 +21,6 @@ class WebComponent extends HTMLElement {
       `
     }
   }
-
-  // 3. Disconnected callback – runs when the element is detached fromthe DOM
-  // Useful for cleanup
-  disconnectedCallback() {
-    console.log('Disconnected callback')
-  }
-
   // List attributes to watch
   static get observedAttributes() {
     return ['text']

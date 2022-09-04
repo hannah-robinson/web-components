@@ -22,6 +22,13 @@
     <!-- note custom attribute 'text' below -->
     <web-component text="This is maybe a web component"></web-component>
     <!-- Script -->
+    <script>
+      const webComponent = document.querySelector('web-component')
+      setTimeout(() => {
+        document.body.removeChild(webComponent)
+        document.body.appendChild(webComponent)
+      }, 1000)
+    </script>
     <script src="component.js"></script>
   </body>
 </html>
