@@ -10,16 +10,13 @@ class WebComponent extends HTMLElement {
     <div>
       <span>${this.innerTextContent}</span>
     </div>
-    <button>Trigger special event</buttton>
     `
     console.log('Constructor')
   }
   // Lifecycle methods (go outside constructor)
   // 1. Connected Callback – runs when the element is attached to the DOM
   connectedCallback() {
-    this.querySelector('button')
-      .addEventListener('click', this.triggerSpecialEvent)
-      .bind(this)
+    console.log('Connected callback')
   }
 
   // 2. Attribute changed cb – checking if an attribute has changed
@@ -28,7 +25,6 @@ class WebComponent extends HTMLElement {
       this.innerHTML = `
       <div>
         <span>${newValue}</span>
-        <button>Trigger special event</buttton>
       </div>
       `
     }
@@ -43,11 +39,6 @@ class WebComponent extends HTMLElement {
   // List attributes to watch
   static get observedAttributes() {
     return ['text']
-  }
-
-  triggerSpecialEvent() {
-    const specialEvent = new Event('special')
-    this.dispatchEvent(specialEvent)
   }
 }
 
