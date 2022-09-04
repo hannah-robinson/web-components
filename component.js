@@ -3,10 +3,6 @@ class WebComponent extends HTMLElement {
   constructor() {
     super()
 
-    if (this.hasAttribute('text')) {
-      this.innerTextContent = this.getAttribute('text')
-    }
-
     this.attachShadow({ mode: 'open' })
 
     this.shadowRoot.innerHTML = `
@@ -22,25 +18,14 @@ class WebComponent extends HTMLElement {
       }
     </style>
     <div>
-      <span>${this.innerTextContent}</span>
-      <slot></slot>
+      <slot name="slot-1"></slot>
     </div>
-    <button>Trigger special event</buttton>
-    `
-    // The grey color absove won't have an effect becuse it iis overidden by a style in the light DOM
+    <div>
+      <slot name="slot-2"></slot>
+    </div>    `
   }
-
-  attributeChangedCallback(attrName, oldValue, newValue) {
-    if (attrName == 'text')
-      this.shadowRoot.querySelector('span').innerHTML = newValue
-  } // This code wasn't clean/DRY in previous commits. Here we've cleaned it up.
-
   disconnectedCallback() {
     console.log('Disconnected callback')
-  }
-
-  static get observedAttributes() {
-    return ['text']
   }
 }
 
