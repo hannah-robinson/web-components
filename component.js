@@ -1,7 +1,7 @@
 class WebComponent extends HTMLElement {
   constructor() {
     super() // calls constructor of the class it is extending, in this case HTMLElement
-    console.log('Hoola!')
+    console.log(this.innerHTML)
   }
 }
 
