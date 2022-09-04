@@ -1,7 +1,13 @@
 class WebComponent extends HTMLElement {
   constructor() {
     super() // calls constructor of the class it is extending, in this case HTMLElement
-    console.log(this.innerHTML)
+
+    // Add HTML to component by:
+    // Setting .innerHTML
+    this.innerHTML = `
+    <div>
+      <span>This is a web component</span>
+    </div>`
   }
 }
 
