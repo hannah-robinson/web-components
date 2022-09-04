@@ -17,17 +17,21 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="style.css" />
+    <style>
+      web-component {
+        text-decoration: underline;
+      }
+      span {
+        color: red;
+      }
+    </style>
   </head>
   <body>
     <!-- note custom attribute 'text' below -->
-    <web-component text="This is maybe a web component"></web-component>
+    <web-component text="This is maybe a web component">
+      <span>This is a slotted in element</span>
+    </web-component>
     <!-- Script -->
-    <script>
-      const webComponent = document.querySelector('web-component')
-      webComponent.addEventListener('special', () => {
-        console.log('The special event has been tiggered')
-      })
-    </script>
     <script src="component.js"></script>
   </body>
 </html>
