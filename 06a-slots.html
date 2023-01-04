@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta property="og:title" content="XXX" />
+    <meta property="og:image" content="//XXX" />
+    <meta property="og:description" content="XXX" />
+    <meta property="og:url" content="//XXX/" />
+    <link rel="apple-touch-icon" href="//XXX/logo192.png" />
+    <title>Web Components and Special Events</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+      integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* This CSS is for the light DOM */
+      web-component {
+        text-decoration: underline;
+      }
+      span {
+        color: red;
+      }
+      :root {
+        --bg-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <web-component>
+      <span slot="slot-1">This a slotted in element.</span>
+      <span slot="slot-2">This span has also been slotted in.</span>
+      <!-- Slotted content is not considered part of the shadow DOM so light DOM styles apply here -->
+    </web-component>
+    <!-- Script -->
+    <script src="06a-slots.js"></script>
+  </body>
+</html>

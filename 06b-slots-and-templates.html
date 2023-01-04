@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta property="og:title" content="XXX" />
+    <meta property="og:image" content="//XXX" />
+    <meta property="og:description" content="XXX" />
+    <meta property="og:url" content="//XXX/" />
+    <link rel="apple-touch-icon" href="//XXX/logo192.png" />
+    <title>Web Components and Special Events</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+      integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* This CSS is for the light DOM */
+      web-component {
+        text-decoration: underline;
+      }
+      span {
+        color: red;
+      }
+      :root {
+        --bg-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Because this is a template tag, it will not be rendered at runtime unless we use JS to do so. The template can go inside or outside the web-component tags-->
+    <!-- <template id="template">
+      <h1>This template code makes up the web component</h1>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi, at
+        ipsa optio quidem cum ipsam numquam dolorem sunt quae fuga porro odit
+        laborum quaerat eos beatae ut cupiditate similique possimus.
+      </p>
+    </template> -->
+    <web-component>
+      <template>
+        <h1>This template code makes up the web component</h1>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi, at
+          ipsa optio quidem cum ipsam numquam dolorem sunt quae fuga porro odit
+          laborum quaerat eos beatae ut cupiditate similique possimus.
+        </p>
+      </template>
+    </web-component>
+    <!-- Script -->
+    <script src="06b-slots-and-templates.js"></script>
+  </body>
+</html>

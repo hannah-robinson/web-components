@@ -1,4 +1,4 @@
-// The shadow DOM is useful for controlling CSS separately for a component, maybe you want it to look the same in different projects
+// Adding named slots
 class WebComponent extends HTMLElement {
   constructor() {
     super()
@@ -22,7 +22,8 @@ class WebComponent extends HTMLElement {
     </div>
     <div>
       <slot name="slot-2"></slot>
-    </div>    `
+    </div> 
+    `
   }
   disconnectedCallback() {
     console.log('Disconnected callback')
