@@ -1,4 +1,4 @@
-// The shadow DOM is useful for controlling CSS separately for a component, maybe you want it to look the same in different projects
+// The shadow DOM is useful for controlling CSS separately for a component, maybe you want it to look the same in different projects. The CSS for the light DOM is separate from the CSS in the shadow DOM.
 class WebComponent extends HTMLElement {
   constructor() {
     super()
@@ -11,23 +11,26 @@ class WebComponent extends HTMLElement {
 
     this.shadowRoot.innerHTML = `
     <style>
+     /* This CSS is for the shadow DOM */
       :host {
         font-weight: bold;
       }
       span {
         color: green;
+        background-color: var(--bg-color);
       }
+      /* slotted pseudo class need a parameter in this case it's 'span' */
       ::slotted(span) {
         color: grey; 
       }
     </style>
     <div>
       <span>${this.innerTextContent}</span>
-      <slot></slot>
+      <slot></slot> <!-- Slotted content is not considered part of the shadow DOM so light DOM styles apply here -->
     </div>
-    <button>Trigger special event</buttton>
     `
-    // The grey color above won't have an effect because it is overidden by a style in the light DOM
+    // The grey color above won't have an effect on the slotted content because it is overidden by a style in the light DOM
+    // Light DOM CSS has no effect on shadow DOM content. Note that while the slotted span is red, the shadow DOM span remains green. (Exception: Loght DOM CSS Varibles are accessible inside the Shadow DOM CSS.)
   }
 
   attributeChangedCallback(attrName, oldValue, newValue) {
