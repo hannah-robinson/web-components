@@ -1,3 +1,11 @@
+// HTML file forr this would contain:
+// <web-component text="This is a web component"></web-component>
+// Browser dev tools output would be:
+// <web-component text="This is a web component">
+//   <div>
+//     <span>This is a web component</span>
+//   </div>
+// </web-component>
 class WebComponent extends HTMLElement {
   constructor() {
     super()

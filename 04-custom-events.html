@@ -9,7 +9,7 @@
     <meta property="og:description" content="XXX" />
     <meta property="og:url" content="//XXX/" />
     <link rel="apple-touch-icon" href="//XXX/logo192.png" />
-    <title>Web Components</title>
+    <title>Web Components and Special Events</title>
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
@@ -27,19 +27,14 @@
     </style>
   </head>
   <body>
-    <!-- template code won't render at runtime unless you render it with js -->
-    <template id="template">
-      <h1>This template code makes up the web component</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur,
-        excepturi assumenda. Tenetur, in iusto. Praesentium delectus minus natus
-        laudantium, repudiandae quasi iusto molestias labore. Corporis obcaecati
-        voluptatem eius nihil natus.
-      </p>
-    </template>
-    <web-component></web-component>
-    <hello-component>Console log me! I am this.innerHTML</hello-component>
+    <web-component text="This is a web component"></web-component>
     <!-- Script -->
-    <script src="component.js"></script>
+    <script>
+      const webComponent = document.querySelector('web-component')
+      webComponent.addEventListener('special', () =>
+        console.log('The special event has been triggered')
+      )
+    </script>
+    <script src="04-custom-events.js"></script>
   </body>
 </html>

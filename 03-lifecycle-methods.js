@@ -1,6 +1,8 @@
 class WebComponent extends HTMLElement {
-  // Constructor – crreated in memory, but not necessarily attached to DOM yet.
+  // Constructor – created in memory, but not necessarily attached to DOM yet.
   // Best place for initialisation. Not best place for interacting with DOM
+  // Runs automatically when you have a web component in your document
+  // If something's not working when put in the constructor, try putting it in the connected callback. Diff between 2 is subtle.
   constructor() {
     super()
     if (this.hasAttribute('text')) {
@@ -15,6 +17,7 @@ class WebComponent extends HTMLElement {
   }
   // Lifecycle methods (go outside constructor)
   // 1. Connected Callback – runs when the element is attached to the DOM
+  // Runs automatically when you have a web component in your document
   connectedCallback() {
     console.log('Connected callback')
   }
@@ -30,7 +33,7 @@ class WebComponent extends HTMLElement {
     }
   }
 
-  // 3. Disconnected callback – runs when the element is detached fromthe DOM
+  // 3. Disconnected callback – runs when the element is detached from the DOM
   // Useful for cleanup
   disconnectedCallback() {
     console.log('Disconnected callback')

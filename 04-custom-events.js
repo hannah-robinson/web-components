@@ -1,3 +1,4 @@
+// Real-world e.g. of when you mighht use a special event is a modal. You might have a close event that can be triggered by clicking a close button or clicking outside the modal or clicking cancel. can check outside of your web component the the close event on the modal component has been run.
 class WebComponent extends HTMLElement {
   constructor() {
     super()
@@ -13,9 +14,10 @@ class WebComponent extends HTMLElement {
   }
 
   connectedCallback() {
-    this.querySelector('button')
-      .addEventListener('click', this.triggerSpecialEvent)
-      .bind(this)
+    this.querySelector('button').addEventListener(
+      'click',
+      this.triggerSpecialEvent.bind(this)
+    )
   }
 
   attributeChangedCallback(attrName, oldValue, newValue) {

@@ -27,7 +27,7 @@ class WebComponent extends HTMLElement {
     </div>
     <button>Trigger special event</buttton>
     `
-    // The grey color absove won't have an effect becuse it iis overidden by a style in the light DOM
+    // The grey color above won't have an effect because it is overidden by a style in the light DOM
   }
 
   attributeChangedCallback(attrName, oldValue, newValue) {
