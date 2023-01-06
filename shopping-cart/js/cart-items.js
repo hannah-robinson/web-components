@@ -2,6 +2,13 @@ class CartItems extends HTMLElement {
   constructor() {
     super()
   }
+
+  updateQty(index, value) {
+    window.cart.items[index].qty = value
+    this.render()
+  }
+  //  We want to trigger a change event on the quantity. We are using a custom event to pass through the line of the item we want to change and its new quantity to a new method and then that method is going to updatet cart.items. We could have put it inside the QuantityInput component, but it makes more sense to the instructor to put it in cart-items because it is literally changing cart.items, the object that this component relates to.
+
   render() {
     this.innerHTML = '' // To reset old info when cart is rerendered.
     const table_container = document.createElement('div')
