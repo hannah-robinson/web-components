@@ -10,10 +10,23 @@ class CartItems extends HTMLElement {
     window.cart.items.forEach((item, index) => {
       const line_price = item.price * item.qty
       // We use the += below to append a table row
+      // Input set type to "number" so that nothing else can be input and min to 0 so that we don't get negative numbers
       table.innerHTML += `
         <tr>
           <td>${item.name}</td>
-          <td style="text-align:center;">${item.qty}</td>
+          <td style="text-align:center;">
+            <qty-input class="quantity">
+              <button class="quantity__button" type="button" name="minus">-</button>
+              <input
+                type="number"
+                value="${item.qty}"
+                min="0"
+                id="Quantity-${index}"
+                data-index="${index}">
+              </input>
+              <button class="quantity__button" type="button" name="plus">+</button>
+            </qty-input>
+          </td>
           <td style="text-align:right;">${line_price}</td>
         </tr>
       `
